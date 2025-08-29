@@ -1,0 +1,12 @@
+# The `render.yaml` file tells Render how to build and run your application.
+# It defines a single web service.
+services:
+  - type: web
+    name: bfhl-api-ashish-22bai1062
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn --bind 0.0.0.0:10000 rest_api:app"
+    # Make sure to set `externalPort` and `port` to match the start command.
+    # The port should be an arbitrary value like `10000` to avoid conflicts.
+    externalPort: 10000
+    port: 10000
